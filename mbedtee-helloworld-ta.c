@@ -42,9 +42,8 @@ TEE_Result TA_EXPORT TA_InvokeCommandEntryPoint(
 		void *session, uint32_t cmd_id,
 		uint32_t paramtypes, TEE_Param params[4])
 {
-	printf("HelloWorld - TA_InvokeCommandEntryPoint\n");
-
-	printf("cmd %d types %d\n", (int)cmd_id, (int)paramtypes);
+	printf("HelloWorld - TA_InvokeCommandEntryPoint cmd %d types %d\n",
+			(int)cmd_id, (int)paramtypes);
 
 	return TEE_SUCCESS;
 }
