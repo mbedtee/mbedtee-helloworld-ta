@@ -1,7 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
 /*
- * SPDX-License-Identifier: Apache-2.0
  * Copyright (c) 2019 KapaXL (kapa.xl@outlook.com)
- *
  * MbedTEE HelloWorld TA
  */
 
@@ -13,14 +12,13 @@
 
 TEE_Result TA_EXPORT TA_CreateEntryPoint(void)
 {
-	printf("HelloWorld - TA_CreateEntryPoint\n");
+	printf("HelloWorld - %s\n", __func__);
 	return TEE_SUCCESS;
 }
 
 void TA_EXPORT TA_DestroyEntryPoint(void)
 {
-	printf("HelloWorld - TA_DestroyEntryPoint\n");
-	return;
+	printf("HelloWorld - %s\n", __func__);
 }
 
 TEE_Result TA_EXPORT TA_OpenSessionEntryPoint(
@@ -28,14 +26,14 @@ TEE_Result TA_EXPORT TA_OpenSessionEntryPoint(
 		TEE_Param params[4],
 		void **session)
 {
-	printf("HelloWorld - TA_OpenSessionEntryPoint\n");
+	printf("HelloWorld - %s\n", __func__);
 
 	return TEE_SUCCESS;
 }
 
 void TA_EXPORT TA_CloseSessionEntryPoint(void *session)
 {
-	printf("HelloWorld - TA_CloseSessionEntryPoint\n");
+	printf("HelloWorld - %s\n", __func__);
 }
 
 TEE_Result TA_EXPORT TA_InvokeCommandEntryPoint(
