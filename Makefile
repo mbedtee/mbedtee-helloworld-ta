@@ -7,9 +7,14 @@ STRIP = $(CROSS_COMPILE)strip
 
 LIB = $(shell $(CC) -print-file-name=libgcc.a) -L$(MBEDTEE_LIBC) -lc
 
-CFLAGS = -Wall -Werror -O2 -nostdlib -std=gnu99 ${ARCH_CFLAGS} -I$(MBEDTEE_INC) -I$(MBEDTEE_INC)/tee
+CFLAGS = -Wall -Werror -O2 -fPIE -nostdlib -std=gnu99 \
+	${ARCH_CFLAGS} -I$(MBEDTEE_INC) -I$(MBEDTEE_INC)/tee
 
 LDFLAGS = -EL -pie -nostdlib -z max-page-size=4096
+
+ifneq ($(shell $(CC) -dumpmachine | grep mips),)
+	CFLAGS += -mabicalls
+endif
 
 APP = mbedtee-helloworld-ta
 MOD = mbedtee-helloworld-temp
